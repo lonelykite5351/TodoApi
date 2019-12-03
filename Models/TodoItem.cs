@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace TodoApi.Models
 {
+    // 傳送的資料欄位
     public class TodoItem
     {
         public long Id { get; set; }

@@ -28,10 +28,12 @@ namespace TodoApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //這段是官方教學加的，登錄資料庫內容
             services.AddDbContext<TodoContext>(opt =>
                opt.UseInMemoryDatabase("TodoList"));
             services.AddControllers();
 
+            //跨域問題加這段
             services.AddCors(options =>
             {
                 options.AddPolicy("VueCorsPolicy", builder =>
@@ -54,9 +56,11 @@ namespace TodoApi
                 app.UseDeveloperExceptionPage();
             }
 
+            //這兩段是官方教學加的
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            //跨域問題加這段
             app.UseCors("VueCorsPolicy");
 
             app.UseHttpsRedirection();
